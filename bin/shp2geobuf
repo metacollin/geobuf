@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --max-old-space-size=8192
 
 var encode = require('../encode'),
     Pbf = require('pbf'),
@@ -45,4 +45,5 @@ else
     var geobuf = encode(geojson, new Pbf());
     var output_buffer = Buffer.allocUnsafe ? Buffer.from(geobuf) : new Buffer(geobuf);
     process.stdout.write(output_buffer);
+    });
 }
